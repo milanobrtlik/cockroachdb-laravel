@@ -11,6 +11,14 @@ use YlsIdeas\CockroachDb\Exceptions\FeatureNotSupportedException;
 class CockroachDbGrammar extends PostgresGrammar
 {
     /**
+     * CockroachDB does not support schema changes wrapped in a transaction.
+     * DDL statements are automatically committed and cannot be rolled back.
+     *
+     * @var bool
+     */
+    protected $transactions = false;
+
+    /**
      * Create a new grammar instance.
      *
      * @param  \Illuminate\Database\Connection  $connection
