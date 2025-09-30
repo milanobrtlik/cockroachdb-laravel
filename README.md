@@ -12,7 +12,7 @@
 A driver/grammar for Laravel that works with CockroachDB. While CockroachDB is compatible with Postgresql, this support
 is not 1 to 1 meaning you may run into issues, this driver hopes to resolve those problems as much as possible.
 
-Laravel 9 through to Laravel 11 is supported and tested against CockroachDB 22 & 23.
+Laravel 9 through to Laravel 12 is supported and tested against CockroachDB 22 & 23.
 
 ### Supporting Open Source
 
@@ -121,7 +121,7 @@ by lifting the tests straight from laravel/framework. This does provide some com
 Namely, cockroachdb is designed to be distributed so primary keys do not occur in sequence.
 
 Tests should also try to be compatible with not just the latest version of Laravel but across
-Laravel 8, 9 and 10, this requires some tests to be skipped.
+Laravel 9, 10, 11 and 12, this requires some tests to be skipped.
 
 You can run up a local cockroachDB test instance using Docker compose.
 ```shell
