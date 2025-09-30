@@ -22,7 +22,7 @@ class CockroachDbConnection extends PostgresConnection implements ConnectionInte
      */
     protected function getDefaultQueryGrammar(): BaseGrammar
     {
-        return $this->withTablePrefix(new QueryGrammar($this));
+        return new QueryGrammar($this);
     }
 
     /**
@@ -46,7 +46,7 @@ class CockroachDbConnection extends PostgresConnection implements ConnectionInte
      */
     protected function getDefaultSchemaGrammar(): BaseGrammar
     {
-        return $this->withTablePrefix(new SchemaGrammar($this));
+        return new SchemaGrammar($this);
     }
 
     /**
