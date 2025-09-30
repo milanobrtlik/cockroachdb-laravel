@@ -2,6 +2,7 @@
 
 namespace YlsIdeas\CockroachDb\Query;
 
+use Illuminate\Database\Connection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\Grammars\Grammar;
 use Illuminate\Database\Query\Grammars\PostgresGrammar;
@@ -9,6 +10,16 @@ use YlsIdeas\CockroachDb\Exceptions\FeatureNotSupportedException;
 
 class CockroachGrammar extends PostgresGrammar
 {
+    /**
+     * Create a new grammar instance.
+     *
+     * @param  \Illuminate\Database\Connection  $connection
+     * @return void
+     */
+    public function __construct(Connection $connection)
+    {
+        parent::__construct($connection);
+    }
     /**
      * Compile an update statement into SQL.
      *

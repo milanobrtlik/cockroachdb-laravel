@@ -2,6 +2,7 @@
 
 namespace YlsIdeas\CockroachDb\Schema;
 
+use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Grammars\PostgresGrammar;
 use Illuminate\Support\Fluent;
@@ -9,6 +10,16 @@ use YlsIdeas\CockroachDb\Exceptions\FeatureNotSupportedException;
 
 class CockroachDbGrammar extends PostgresGrammar
 {
+    /**
+     * Create a new grammar instance.
+     *
+     * @param  \Illuminate\Database\Connection  $connection
+     * @return void
+     */
+    public function __construct(Connection $connection)
+    {
+        parent::__construct($connection);
+    }
     /**
      * Compile the query to determine the tables.
      *
