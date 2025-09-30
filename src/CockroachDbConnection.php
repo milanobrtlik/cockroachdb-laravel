@@ -22,7 +22,7 @@ class CockroachDbConnection extends PostgresConnection implements ConnectionInte
      */
     protected function getDefaultQueryGrammar(): BaseGrammar
     {
-        return $this->withTablePrefix($this->setConnection(new QueryGrammar()));
+        return $this->withTablePrefix(new QueryGrammar($this));
     }
 
     /**
@@ -46,7 +46,7 @@ class CockroachDbConnection extends PostgresConnection implements ConnectionInte
      */
     protected function getDefaultSchemaGrammar(): BaseGrammar
     {
-        return $this->withTablePrefix($this->setConnection(new SchemaGrammar()));
+        return $this->withTablePrefix(new SchemaGrammar($this));
     }
 
     /**
@@ -79,17 +79,5 @@ class CockroachDbConnection extends PostgresConnection implements ConnectionInte
     {
         /** @phpstan-ignore-next-line Now redundant in Laravel 11 */
         return new PostgresDriver();
-    }
-
-    /**
-     * Required to set the connection. This isn't compatible with older Laravel versions
-     */
-    protected function setConnection(BaseGrammar $grammar): BaseGrammar
-    {
-        if (method_exists($grammar, 'setConnection')) {
-            return $grammar->setConnection($this);
-        }
-
-        return $grammar;
     }
 }
