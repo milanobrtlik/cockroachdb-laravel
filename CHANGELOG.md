@@ -2,6 +2,17 @@
 
 All notable changes to `cockroachdb-laravel` will be documented in this file.
 
+## v1.5.0 - 2025-01-XX
+
+### What's Changed
+
+* Upgrade to Laravel 12 support
+* Added PHP 8.4 support
+* Updated testing dependencies (Pest ^3.0, Orchestra Testbench ^10.0)
+* Removed incompatible dev dependencies (PHPStan, Larastan, Rector, Laravel Ray)
+
+**Full Changelog**: TBD
+
 ## v1.4.0 - 2024-03-24
 
 ### What's Changed

@@ -15,11 +15,20 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        php: [ 8.2, 8.3 ]
-        laravel: [ 11.*, 10.*, 9.* ]
+        php: [ 8.2, 8.3, 8.4 ]
+        laravel: [ 12.*, 11.*, 10.*, 9.* ]
         cockroachdb: [ v22.2.17, v23.2.2 ]
         dependencies: [ stable, lowest ]
+        exclude:
+          - php: 8.3
+            laravel: 9.*
+          - php: 8.4
+            laravel: 9.*
+          - php: 8.4
+            laravel: 10.*
         include:
+          - laravel: 12.*
+            testbench: ^10.0
           - laravel: 11.*
             testbench: ^9.0
           - laravel: 10.*
@@ -31,6 +40,10 @@ jobs:
             dotenv: ^5.5.0
             carbon: ^2.62.1
           - php: 8.3
+            dependencies: lowest
+            dotenv: ^5.5.0
+            carbon: ^2.62.1
+          - php: 8.4
             dependencies: lowest
             dotenv: ^5.5.0
             carbon: ^2.62.1
