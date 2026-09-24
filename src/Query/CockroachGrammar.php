@@ -20,6 +20,7 @@ class CockroachGrammar extends PostgresGrammar
     {
         parent::__construct($connection);
     }
+
     /**
      * Compile an update statement into SQL.
      *

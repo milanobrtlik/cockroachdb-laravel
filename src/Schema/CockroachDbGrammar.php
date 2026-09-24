@@ -28,6 +28,7 @@ class CockroachDbGrammar extends PostgresGrammar
     {
         parent::__construct($connection);
     }
+
     /**
      * Compile the query to determine the tables.
      *
